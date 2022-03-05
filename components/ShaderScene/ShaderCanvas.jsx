@@ -6,7 +6,6 @@ const ShaderCanvas = (props) => {
     const meshRef = useRef()
 
     useFrame((_, delta) => {
-        console.log(meshRef.current.material)
         if (meshRef.current.material.uniforms.uTime) {
             meshRef.current.material.uniforms.uTime.value += delta
         }
