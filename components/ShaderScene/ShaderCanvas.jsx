@@ -1,4 +1,3 @@
-/* eslint-disable import/no-webpack-loader-syntax */
 import { useFrame } from '@react-three/fiber'
 import React, { useRef } from 'react'
 
