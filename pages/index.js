@@ -9,14 +9,14 @@ import vertexShader from 'public/shaders/vertexShader.vert'
 import { Vector2 } from 'three'
 
 export default function Home() {
-    const { canvasWidth, canvasHeight, cameraZoom, canvasScale } =
+    const { width, height, cameraZoom, canvasScale } =
         useContext(CanvasSetupContext)
 
     useShaderMaterial({
         materialName: 'ShaderMaterial',
         uniforms: {
             uTime: 0,
-            uResolution: new Vector2(canvasWidth, canvasHeight),
+            uResolution: new Vector2(width, height),
         },
         vertexShader,
         fragShader,
@@ -36,7 +36,7 @@ export default function Home() {
             </Head>
 
             <Canvas
-                style={{ width: canvasWidth, height: canvasHeight }}
+                style={{ width: width, height: height }}
                 orthographic
                 dpr={dpr}
                 camera={{ position: [0, 0, 5], zoom: cameraZoom }}
