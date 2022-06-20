@@ -1,7 +1,7 @@
 import { useFrame } from '@react-three/fiber'
 import React, { useRef } from 'react'
 
-const ShaderCanvas = (props) => {
+const ShaderPlane = (props) => {
     const meshRef = useRef()
 
     useFrame((_, delta) => {
@@ -18,4 +18,4 @@ const ShaderCanvas = (props) => {
     )
 }
 
-export default ShaderCanvas
+export default ShaderPlane

@@ -1,29 +1,7 @@
-import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
-import { useContext } from 'react'
-import { CanvasSetupContext } from 'store/canvasSetup/CanvasSetupProvider'
-import ShaderScene from 'components/ShaderScene/ShaderScene'
-import useShaderMaterial from 'hooks/useShaderMaterial'
-import fragShader from 'public/shaders/fragShader.frag'
-import vertexShader from 'public/shaders/vertexShader.vert'
-import { Vector2 } from 'three'
+import ShaderCanvas from 'components/ShaderApp'
 
 export default function Home() {
-    const { width, height, cameraZoom, canvasScale } =
-        useContext(CanvasSetupContext)
-
-    useShaderMaterial({
-        materialName: 'ShaderMaterial',
-        uniforms: {
-            uTime: 0,
-            uResolution: new Vector2(width, height),
-        },
-        vertexShader,
-        fragShader,
-    })
-
-    const dpr = typeof window !== 'undefined' ? window.devicePixelRatio : 1
-
     return (
         <main>
             <Head>
@@ -35,15 +13,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Canvas
-                style={{ width: width, height: height }}
-                orthographic
-                dpr={dpr}
-                camera={{ position: [0, 0, 5], zoom: cameraZoom }}
-                gl={{ preserveDrawingBuffer: true }}
-            >
-                <ShaderScene scale={canvasScale} />
-            </Canvas>
+            <ShaderCanvas shaderFile="fragShader.frag" />
         </main>
     )
 }

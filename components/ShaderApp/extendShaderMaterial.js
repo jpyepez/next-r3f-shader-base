@@ -1,8 +1,7 @@
 import { extend } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 
-// TODO: fix material name, keep an eye on caps
-const useShaderMaterial = ({
+const extendShaderMaterial = ({
     materialName,
     uniforms,
     vertexShader,
@@ -12,4 +11,4 @@ const useShaderMaterial = ({
     extend({ [materialName]: ShaderMaterial })
 }
 
-export default useShaderMaterial
+export default extendShaderMaterial
