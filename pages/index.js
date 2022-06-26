@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import ShaderCanvas from 'components/ShaderApp'
+import { ShaderCanvas } from 'components/ShaderCanvas'
 
 export default function Home() {
     return (
