@@ -4,10 +4,14 @@ import React, { useRef } from 'react'
 const ShaderPlane = (props) => {
     const meshRef = useRef()
 
+    // update time
+    // update resolution to handle resize
     useFrame((_, delta) => {
-        if (meshRef.current.material.uniforms.uTime) {
-            meshRef.current.material.uniforms.uTime.value += delta
-        }
+        meshRef.current.material.uniforms.uTime.value += delta
+        meshRef.current.material.uniforms.uResolution.value.set(
+            props.width,
+            props.height
+        )
     })
 
     return (
